@@ -12,7 +12,7 @@ require 'rack/lint'
 require 'rack/mock'
 
 class ContentType
-  include Hobby::Middleware
+  include Rack::Middleware
 
   def args content_type = 'text/html'
     @content_type = content_type
@@ -25,7 +25,7 @@ class ContentType
   end
 end
 
-describe Hobby::Middleware do
+describe Rack::Middleware do
   def content_type(app, *args)
     Rack::Lint.new ContentType.new(app, *args)
   end
