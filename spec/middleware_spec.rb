@@ -11,27 +11,21 @@ require 'rack/test'
 require 'rack/lint'
 require 'rack/mock'
 
-describe Rack::Middleware do
+class ContentType
+  include Hobby::Middleware
 
-
-
-
-
-
-  class ContentType
-    include Rack::Middleware
-
-    def args content_type = 'text/html'
-      @content_type = content_type
-    end
-
-    def after
-      unless Rack::Utils::STATUS_WITH_NO_ENTITY_BODY.include? @status
-        header_hash[Rack::CONTENT_TYPE] ||= @content_type
-      end
-    end
+  def args content_type = 'text/html'
+    @content_type = content_type
   end
 
+  def after
+    unless Rack::Utils::STATUS_WITH_NO_ENTITY_BODY.include? @status
+      header_hash[Rack::CONTENT_TYPE] ||= @content_type
+    end
+  end
+end
+
+describe Hobby::Middleware do
   def content_type(app, *args)
     Rack::Lint.new ContentType.new(app, *args)
   end

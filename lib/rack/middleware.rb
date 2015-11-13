@@ -1,4 +1,4 @@
-module Hobby
+module Rack
   module Middleware
     def initialize app, *a, &b
       @app = app
