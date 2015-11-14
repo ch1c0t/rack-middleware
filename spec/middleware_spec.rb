@@ -11,16 +11,9 @@ require 'rack/test'
 require 'rack/lint'
 require 'rack/mock'
 
+require_relative './app_from_file'
 Dir['spec/middlewares/*.rb'].each do |file|
-  name = File.basename file, '.rb'
-  body = IO.read file
-
-  eval %!
-    class #{name}
-      include Rack::Middleware
-      #{body}
-    end
-  !
+  app_from_file File.expand_path file
 end
 
 # The tests were mostly derived from

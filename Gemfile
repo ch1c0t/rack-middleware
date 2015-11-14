@@ -6,5 +6,6 @@ gem 'rspec-power_assert'
 gem 'rack'
 gem 'rack-test'
 gem 'pry'
+gem 'benchmark-ips'
 
 gemspec
