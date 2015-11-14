@@ -16,7 +16,7 @@ module Rack
 
 
     def header_hash
-      @header_hash ||= (@header = Rack::Utils::HeaderHash.new @header)
+      @header_hash ||= (@header = Utils::HeaderHash.new @header)
     end
 
     def request

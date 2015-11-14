@@ -5,5 +5,6 @@ gem 'rspec'
 gem 'rspec-power_assert'
 gem 'rack'
 gem 'rack-test'
+gem 'pry'
 
 gemspec
