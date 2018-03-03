@@ -1,0 +1,14 @@
+➜  rack-middleware git:(master) bundle exec ruby bench/0.rb 
+Warming up --------------------------------------
+with Rack::Middleware
+                        13.189k i/100ms
+             without    16.378k i/100ms
+Calculating -------------------------------------
+with Rack::Middleware
+                        143.335k (± 0.7%) i/s -    725.395k in   5.061081s
+             without    183.500k (± 0.6%) i/s -    933.546k in   5.087605s
+
+Comparison:
+             without:   183499.8 i/s
+with Rack::Middleware:   143334.9 i/s - 1.28x  slower
+
